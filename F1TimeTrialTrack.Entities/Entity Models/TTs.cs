@@ -11,7 +11,7 @@ namespace F1TimeTrialTrack.Entities.Entity_Models
 {
     public class TTs : IIdEntity
     {
-        public TTs( string trackName, string car, string driver, string time, string date, string platform, string tire, string assist, string setup, string wheather)
+        public TTs( string trackName, string car, string driver, string time, DateTime date, string platform, string tire, string assist, string setup, string wheather)
         {
             Id = Guid.NewGuid().ToString();
             TrackName = trackName;

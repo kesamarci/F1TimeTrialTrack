@@ -6,7 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-	
 	<ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
@@ -18,7 +17,7 @@
 	  </PackageReference>
   </ItemGroup>
 
- 
+  
 
   <ItemGroup>
     <ProjectReference Include="..\F1TimeTrialTrack.Data\F1TimeTrialTrack.Data.csproj" />
