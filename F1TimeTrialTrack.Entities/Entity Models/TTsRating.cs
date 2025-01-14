@@ -28,7 +28,7 @@ namespace F1TimeTrialTrack.Entities.Entity_Models
         public string Comment { get; set; }
         public string UserId { get; set; }
         [NotMapped]
-        public virtual TTs TTs { get; set; }
+        public virtual TTs? TTs { get; set; }
 
     }
 }

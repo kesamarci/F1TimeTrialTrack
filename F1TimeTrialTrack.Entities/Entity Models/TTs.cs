@@ -40,6 +40,6 @@ namespace F1TimeTrialTrack.Entities.Entity_Models
         public string Setup { get; set; }
         public string Wheather { get; set; }
         [NotMapped]
-        public virtual TTsRating TTsRating { get; set; }
+        public virtual ICollection<TTsRating> TTsRatings { get; set; }
     }
 }
