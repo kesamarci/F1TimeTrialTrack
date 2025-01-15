@@ -14,6 +14,6 @@ namespace F1TimeTrialTrack.Entities.Dtos.Tracks
         public double Length { get; set; } = 0;
         public IEnumerable<TrackRatingViewDto>? Ratings { get; set; } 
         public int RatingCount => Ratings?.Count() ?? 0;
-        public double AvarageRating => Ratings?.Average(r => r.Rating) ?? 0;
+        public double AverageRating => Ratings?.Count() > 0 ? Ratings.Average(r => r.Rating) : 0;
     }
 }

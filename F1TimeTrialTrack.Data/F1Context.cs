@@ -19,6 +19,7 @@ namespace F1TimeTrialTrack.Data
 
         public F1Context(DbContextOptions<F1Context>ctx): base(ctx)
         {
+
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

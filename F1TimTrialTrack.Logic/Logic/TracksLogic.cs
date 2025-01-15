@@ -48,7 +48,8 @@ namespace F1TimeTrialTrack.Logic.Logic
         }
         public TrackViewDto GetTrack(string id)
         {
-            return dtoProvider.Mapper.Map<TrackViewDto>(repo.FindById(id));
+            var model = repo.FindById(id);
+            return dtoProvider.Mapper.Map<TrackViewDto>(model);
         }
     }
 }

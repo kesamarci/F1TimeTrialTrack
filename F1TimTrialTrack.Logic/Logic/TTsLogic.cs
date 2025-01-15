@@ -19,7 +19,7 @@ namespace F1TimeTrialTrack.Logic.Logic
             this.repo = repo;
             this.dtoProvider = dtoProvider;
         }
-        public void AddTTs(TTsCCreateUpdateDto dto)
+        public void AddTTs(TTsCCreateUpdateDto dto)//nincs update mert csak 1 TT lehet egy fiókhoz,
         {
             TTs ts=dtoProvider.Mapper.Map<TTs>(dto);
             if (repo.GetAll().FirstOrDefault(x=>x.Id==ts.Id)==null)
@@ -32,10 +32,21 @@ namespace F1TimeTrialTrack.Logic.Logic
             }
             
         }
+        public IEnumerable<TTsViewDto> GetAllTTs()
+        {
+            return repo.GetAll()
+                .Select(x => dtoProvider.Mapper.Map<TTsViewDto>(x));
+        }
         public TTsViewDto GetTTs(string id)
         {
             var ts = repo.FindById(id);
             return dtoProvider.Mapper.Map<TTsViewDto>(ts);
+        }
+        public void UpdateTTs(string id, TTsCCreateUpdateDto dto)
+        {
+            var model = repo.FindById(id);
+            dtoProvider.Mapper.Map(dto, model);
+            repo.Update(model);
         }
         public void DeleteTTs(string id)
         {
