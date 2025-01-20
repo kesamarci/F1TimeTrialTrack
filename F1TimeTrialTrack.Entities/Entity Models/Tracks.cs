@@ -26,9 +26,10 @@ namespace F1TimeTrialTrack.Entities.Entity_Models
         public string Name { get; set; }
 
         public double Length { get; set; }
-
+        
 
         public virtual ICollection<TracksRating> TracksRatings { get; set; }
+        public virtual ICollection<TrackFile> TrackFiles { get; set; }
 
 
     }

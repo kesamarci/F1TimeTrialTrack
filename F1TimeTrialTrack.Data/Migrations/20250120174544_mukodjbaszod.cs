@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace F1TimeTrialTrack.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class saajt : Migration
+    public partial class mukodjbaszod : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -194,6 +194,27 @@ namespace F1TimeTrialTrack.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TrackFiles",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    FileName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FileExtension = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FilePath = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TrackId = table.Column<string>(type: "nvarchar(50)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TrackFiles", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TrackFiles_Tracks_TrackId",
+                        column: x => x.TrackId,
+                        principalTable: "Tracks",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TracksRating",
                 columns: table => new
                 {
@@ -275,6 +296,11 @@ namespace F1TimeTrialTrack.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_TrackFiles_TrackId",
+                table: "TrackFiles",
+                column: "TrackId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_TracksRating_TrackId",
                 table: "TracksRating",
                 column: "TrackId");
@@ -302,6 +328,9 @@ namespace F1TimeTrialTrack.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "TrackFiles");
 
             migrationBuilder.DropTable(
                 name: "TracksRating");

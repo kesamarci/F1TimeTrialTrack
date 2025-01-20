@@ -9,28 +9,25 @@ using F1TimeTrialTrack.Entities.Helpers;
 
 namespace F1TimeTrialTrack.Entities.Entity_Models
 {
-    public class TracksRating : IIdEntity
+    public class TrackFile : IIdEntity
     {
-        public TracksRating( string trackId, int rating, string comment)
+        public TrackFile(string fileName, string fileExtension, string filePath, string trackId)
         {
             Id = Guid.NewGuid().ToString();
+            FileName = fileName;
+            FileExtension = fileExtension;
+            FilePath = filePath;
             TrackId = trackId;
-            Rating = rating;
-            Comment = comment;
         }
-
         [StringLength(50)]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Id { get; set; }
-        public string TrackId { get; set; }
-
-        public string UserId { get; set; }
-        [Range(1,10)]
-        public int Rating { get; set; }
-        public string Comment { get; set; }
+        public string Id { get; set; } = "";
+        public string FileName { get; set; } = "";
+        public string FileExtension { get; set; } = "";
+        public string FilePath { get; set; } = "";
+        public string TrackId { get; set; } = "";
         [NotMapped]
         public virtual Tracks? Track { get; set; }
-       
     }
 }

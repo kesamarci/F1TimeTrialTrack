@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace F1TimeTrialTrack.Data.Migrations
 {
     [DbContext(typeof(F1Context))]
-    [Migration("20250115172138_saajt")]
-    partial class saajt
+    [Migration("20250120174544_mukodjbaszod")]
+    partial class mukodjbaszod
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -106,6 +106,36 @@ namespace F1TimeTrialTrack.Data.Migrations
                     b.HasIndex("TTsId");
 
                     b.ToTable("TTsRating");
+                });
+
+            modelBuilder.Entity("F1TimeTrialTrack.Entities.Entity_Models.TrackFile", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("FileExtension")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TrackId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TrackId");
+
+                    b.ToTable("TrackFiles");
                 });
 
             modelBuilder.Entity("F1TimeTrialTrack.Entities.Entity_Models.Tracks", b =>
@@ -369,11 +399,9 @@ namespace F1TimeTrialTrack.Data.Migrations
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("AppUser");
@@ -388,6 +416,17 @@ namespace F1TimeTrialTrack.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("TTs");
+                });
+
+            modelBuilder.Entity("F1TimeTrialTrack.Entities.Entity_Models.TrackFile", b =>
+                {
+                    b.HasOne("F1TimeTrialTrack.Entities.Entity_Models.Tracks", "Track")
+                        .WithMany("TrackFiles")
+                        .HasForeignKey("TrackId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Track");
                 });
 
             modelBuilder.Entity("F1TimeTrialTrack.Entities.Entity_Models.TracksRating", b =>
@@ -459,6 +498,8 @@ namespace F1TimeTrialTrack.Data.Migrations
 
             modelBuilder.Entity("F1TimeTrialTrack.Entities.Entity_Models.Tracks", b =>
                 {
+                    b.Navigation("TrackFiles");
+
                     b.Navigation("TracksRatings");
                 });
 #pragma warning restore 612, 618

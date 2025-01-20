@@ -12,7 +12,7 @@ namespace F1TimeTrialTrack.Entities.Dtos.Tracks
         public required string Name { get; set; } = "";
         public required double Length { get; set; } = 0;
 
-        public required IFormFile ImageFile { get; set; }
+       
 
 
     }

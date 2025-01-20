@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using F1TimeTrialTrack.Data;
+using F1TimeTrialTrack.Entities.Dtos.TrackFiles;
 using F1TimeTrialTrack.Entities.Dtos.Tracks;
 using F1TimeTrialTrack.Entities.Dtos.TracksRating;
 using F1TimeTrialTrack.Entities.Dtos.TTs;
@@ -36,6 +37,8 @@ namespace F1TimeTrialTrack.Logic.Helpers
                 });
                 cfg.CreateMap<Tracks, TrackViewDto>();
                 cfg.CreateMap<TracksCreateUpdateDto, Tracks>();
+                cfg.CreateMap<TrackFile, TrackViewDto>();
+                cfg.CreateMap<TrackFileCreateDto, TrackFile>();
                 cfg.CreateMap<TrackRatingCreateDto, TracksRating>();
                 cfg.CreateMap<TracksRating, TrackRatingViewDto>()
                 .AfterMap((src, dest) =>

@@ -16,16 +16,17 @@ namespace F1TimeTrialTrack.Data
         public DbSet<TTs> TTs { get; set; }
         public DbSet<TTsRating> TTsRating { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<TrackFile> TrackFiles { get; set; }
 
-        public F1Context(DbContextOptions<F1Context>ctx): base(ctx)
+        public F1Context(DbContextOptions<F1Context> ctx) : base(ctx)
         {
-
+            
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Tracks>()
-                .HasMany(t=>t.TracksRatings)
+                .HasMany(t => t.TracksRatings)
                 .WithOne(tr => tr.Track)
                 .HasForeignKey(tr => tr.TrackId)
                 .OnDelete(DeleteBehavior.Cascade);
@@ -35,6 +36,13 @@ namespace F1TimeTrialTrack.Data
                 .WithOne(tr => tr.TTs)
                 .HasForeignKey(tr => tr.TTsId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<Tracks>()
+                .HasMany(t => t.TrackFiles)
+                .WithOne(tf => tf.Track)
+                .HasForeignKey(tf => tf.TrackId)
+                .OnDelete(DeleteBehavior.Cascade);
+
             base.OnModelCreating(builder);
         }
     }
