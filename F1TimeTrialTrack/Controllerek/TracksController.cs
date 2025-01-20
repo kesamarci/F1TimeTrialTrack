@@ -1,4 +1,5 @@
 ﻿using F1TimeTrialTrack.Entities.Dtos.Tracks;
+using F1TimeTrialTrack.Helpers;
 using F1TimeTrialTrack.Logic.Logic;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -43,5 +44,12 @@ namespace F1TimeTrialTrack.Controllerek
         {
             return logic.GetTrack(id);
         }
+        [HttpPost("képfeltöltés")] //api/main/uploadfile (nagyon próba, lehet benne hagyom lehet nem)
+        public IActionResult UploadFile(IFormFile file)
+        {
+            
+            return Ok(new UploadHandler().Upload(file));
+        }
+
     }
 }

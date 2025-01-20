@@ -10,7 +10,7 @@ namespace F1TimeTrialTrack.Entities.Dtos.User
     {
         public string Id { get; set; } = "";
 
-        public string NickName { get; set; } = "";
+        public string UserName { get; set; } = "";
 
         public bool IsAdmin { get; set; }
 

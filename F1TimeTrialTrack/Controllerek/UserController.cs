@@ -58,7 +58,6 @@ namespace F1TimeTrialTrack.Controllerek
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin")]
         public IEnumerable<UserViewDto> GetUsers()
         {
             return userManager.Users
@@ -68,7 +67,7 @@ namespace F1TimeTrialTrack.Controllerek
 
         public async Task Register(UserInputDto dto)
         {
-            var user = new AppUser(dto.NickName);
+            var user = new AppUser(dto.UserName);
             user.FirstName=dto.FirstName;
             user.LastName = dto.LastName;
             await userManager.CreateAsync(user, dto.Password);
@@ -82,7 +81,7 @@ namespace F1TimeTrialTrack.Controllerek
         [HttpPost("bejelentkezés")]
         public async Task<IActionResult> Login(UserInputDto dto)
         {
-            var user = await userManager.FindByNameAsync(dto.NickName);
+            var user = await userManager.FindByNameAsync(dto.UserName);
             if (user == null)
             {
                 throw new ArgumentException("Felhasználó nem található");

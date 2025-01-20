@@ -10,7 +10,7 @@ namespace F1TimeTrialTrack.Entities.Dtos.User
     public class UserInputDto
     {
         [MinLength(4)]
-        public required string NickName { get; set; } = "";
+        public required string UserName { get; set; } = "";
 
         [MinLength(4)]
         public required string Password { get; set; } = "";

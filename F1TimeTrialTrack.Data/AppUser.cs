@@ -9,9 +9,9 @@ namespace F1TimeTrialTrack.Data
 {
     public class AppUser : IdentityUser
     {
-        public string FirstName { get; set; } = "";
-        public string LastName { get; set; } = "";
-        public AppUser(string nickname) : base(nickname)
+        public string? FirstName { get; set; } = "";
+        public string? LastName { get; set; } = "";
+        public AppUser(string username) : base(username)
         {
 
         }

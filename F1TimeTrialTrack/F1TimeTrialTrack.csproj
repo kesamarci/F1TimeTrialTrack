@@ -25,4 +25,10 @@
     <ProjectReference Include="..\F1TimTrialTrack.Logic\F1TimeTrialTrack.Logic.csproj" />
   </ItemGroup>
 
+  
+
+  <ItemGroup>
+    <Folder Include="Uploads\" />
+  </ItemGroup>
+
 </Project>
