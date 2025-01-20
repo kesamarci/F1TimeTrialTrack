@@ -11,7 +11,7 @@ namespace F1TimeTrialTrack.Controllerek
         public IActionResult UploadFile(IFormFile file)
         {
 
-            return Ok(new UploadHandler().Upload(file));
+            return Ok(new UploadHandler().Upload(file));//visszaadja a fájl nevét
         }
     }
 }
