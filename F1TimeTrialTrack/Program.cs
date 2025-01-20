@@ -16,6 +16,7 @@ namespace F1TimeTrialTrack
 {
     public class Program
     {
+        
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +28,7 @@ namespace F1TimeTrialTrack
             builder.Services.AddTransient<TTsRatingLogic>();
             builder.Services.AddTransient<TracksLogic>();
             builder.Services.AddTransient<TTsLogic>();
+            builder.Services.AddTransient<FileLogic>();
 
             builder.Services.AddIdentity<AppUser, IdentityRole>(
                 option =>
@@ -80,6 +82,7 @@ namespace F1TimeTrialTrack
                 opt.Filters.Add<ValidF>();
 
             });
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(opt =>
@@ -119,15 +122,17 @@ namespace F1TimeTrialTrack
                 {
                     app.UseSwagger();
                     app.UseSwaggerUI();
+                    app.UseDeveloperExceptionPage();
                 }
-
+                app.UseStaticFiles();
+                app.UseRouting();
+                app.UseAuthorization();
+                app.UseEndpoints(endpoints =>
+                {
+                endpoints.MapControllers();
+                });
                 app.UseHttpsRedirection();
                 app.UseAuthentication();
-                app.UseAuthorization();
-
-
-                app.MapControllers();
-
                 app.Run();
             }
     }
