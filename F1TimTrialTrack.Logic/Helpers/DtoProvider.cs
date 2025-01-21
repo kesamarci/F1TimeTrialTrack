@@ -37,7 +37,7 @@ namespace F1TimeTrialTrack.Logic.Helpers
                 });
                 cfg.CreateMap<Tracks, TrackViewDto>();
                 cfg.CreateMap<TracksCreateUpdateDto, Tracks>();
-                cfg.CreateMap<TrackFile, TrackViewDto>();
+                cfg.CreateMap<TrackFile, TrackFileViewDto>();
                 cfg.CreateMap<TrackFileCreateDto, TrackFile>();
                 cfg.CreateMap<TrackRatingCreateDto, TracksRating>();
                 cfg.CreateMap<TracksRating, TrackRatingViewDto>()
