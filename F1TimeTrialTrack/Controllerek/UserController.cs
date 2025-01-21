@@ -117,7 +117,7 @@ namespace F1TimeTrialTrack.Controllerek
                 }
             }
         }
-        private JwtSecurityToken GenerateAccessToken(IEnumerable<Claim>? claims, int expiryInMinutes)
+        private JwtSecurityToken GenerateAccessToken(IEnumerable<Claim>? claims, int expiryInMinutes)//JasonWebToken
         {
             var signinKey = new SymmetricSecurityKey(
                   Encoding.UTF8.GetBytes("nagyontitkoskulcsdeténylegagyfasztiskaptamtőlenagyontitkoskulcsdeténylegagyfasztiskaptamtőle"));

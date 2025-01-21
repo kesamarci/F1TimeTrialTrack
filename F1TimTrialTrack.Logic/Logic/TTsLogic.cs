@@ -22,13 +22,13 @@ namespace F1TimeTrialTrack.Logic.Logic
         public void AddTTs(TTsCCreateUpdateDto dto)//nincs update mert csak 1 TT lehet egy fiókhoz,
         {
             TTs ts=dtoProvider.Mapper.Map<TTs>(dto);
-            if (repo.GetAll().FirstOrDefault(x=>x.Id==ts.Id)==null)
+            if (repo.GetAll().FirstOrDefault(x=>x.TrackName==ts.TrackName)==null)
             {
                 repo.Create(ts);
             }
             else
             {
-                throw new ArgumentException("Te már csak Updatelni tudsz, egy fiók csak egy TT idővel rendelkezhet");
+                throw new ArgumentException("Te már csak Updatelni tudsz, egy fiók csak egy TT idővel rendelkezhet egy pályához");
             }
             
         }
