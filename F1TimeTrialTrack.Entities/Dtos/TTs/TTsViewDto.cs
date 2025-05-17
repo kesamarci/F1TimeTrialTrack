@@ -20,5 +20,7 @@ namespace F1TimeTrialTrack.Entities.Dtos.TTs
         public string Setup { get; set; } = "";
         public string Wheather { get; set; } = "";
         public double AvaerageRating { get; set; } = 0;
+        public double? AverageTime { get; set; }
+        public int TimeInMillis { get; set; }
     }
 }

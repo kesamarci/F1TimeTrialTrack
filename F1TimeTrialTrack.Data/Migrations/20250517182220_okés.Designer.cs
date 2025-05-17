@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace F1TimeTrialTrack.Data.Migrations
 {
     [DbContext(typeof(F1Context))]
-    [Migration("20250120174544_mukodjbaszod")]
-    partial class mukodjbaszod
+    [Migration("20250517182220_okés")]
+    partial class okés
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,6 +61,9 @@ namespace F1TimeTrialTrack.Data.Migrations
                     b.Property<string>("Time")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TimeInMillis")
+                        .HasColumnType("int");
 
                     b.Property<string>("Tire")
                         .IsRequired()

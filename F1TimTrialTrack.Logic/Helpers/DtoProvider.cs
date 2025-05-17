@@ -51,6 +51,9 @@ namespace F1TimeTrialTrack.Logic.Helpers
                 .AfterMap((src, dest) =>
                 {
                     dest.AvaerageRating = src.TTsRatings?.Count > 0 ? src.TTsRatings.Average(r => r.Rating) : 0;
+                    dest.TimeInMillis = src.TimeInMillis;
+                    
+
                 });
                 cfg.CreateMap<TTsCCreateUpdateDto, TTs>();
                 cfg.CreateMap<TTsRatingCreateDto, TTsRating>();
