@@ -7,7 +7,7 @@ namespace F1TimeTrialTrack.Controllerek
     [ApiController]
     public class TrackFileController : ControllerBase
     {
-        [HttpPost("képfeltöltés")] //api/main/uploadfile (nagyon próba, lehet benne hagyom lehet nem)
+        [HttpPost("képfeltöltés")] //api/main/uploadfile (nagyon próba, lehet benne hagyom lehet nem) végül nem fogom.
         public IActionResult UploadFile(IFormFile file)
         {
 
