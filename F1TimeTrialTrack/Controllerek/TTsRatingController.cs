@@ -9,7 +9,7 @@ namespace F1TimeTrialTrack.Controllerek
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class TTsRatingController : ControllerBase
     {
         TTsRatingLogic logic;
