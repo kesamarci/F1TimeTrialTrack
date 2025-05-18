@@ -75,15 +75,15 @@ namespace F1TimeTrialTrack.Logic.Logic
             }
 
         }
-        public IEnumerable<TTsViewDto> GetAllTTs()
+        public IEnumerable<TTsShortViewDto> GetAllTTs()
         {
 
             var all = repo.GetAll();
-            var result = new List<TTsViewDto>();
+            var result = new List<TTsShortViewDto>();
 
             foreach (var tt in all)
             {
-                var dto = dtoProvider.Mapper.Map<TTsViewDto>(tt);
+                var dto = dtoProvider.Mapper.Map<TTsShortViewDto>(tt);
                 dto.AverageTime = GetAverageTimeByTrack(tt.TrackName);
                 result.Add(dto);
             }
@@ -94,7 +94,6 @@ namespace F1TimeTrialTrack.Logic.Logic
         {
             var ts = repo.FindById(id);
             var dto = dtoProvider.Mapper.Map<TTsViewDto>(ts);
-            dto.AverageTime = GetAverageTimeByTrack(ts.TrackName);
             return dto;
         
         }

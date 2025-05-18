@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace F1TimeTrialTrack.Data.Migrations
 {
     [DbContext(typeof(F1Context))]
-    [Migration("20250517182220_okés")]
-    partial class okés
+    [Migration("20250518151057_fullos")]
+    partial class fullos
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

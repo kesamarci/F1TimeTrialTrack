@@ -22,7 +22,7 @@ namespace F1TimeTrialTrack.Controllerek
             logic.AddTTs(tTs);
         }
         [HttpGet]
-        public IEnumerable<TTsViewDto> GetAllTTs()
+        public IEnumerable<TTsShortViewDto> GetAllTTs()
         {
             return logic.GetAllTTs();
         }

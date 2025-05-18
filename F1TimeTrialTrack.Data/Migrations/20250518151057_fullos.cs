@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace F1TimeTrialTrack.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class okés : Migration
+    public partial class fullos : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
